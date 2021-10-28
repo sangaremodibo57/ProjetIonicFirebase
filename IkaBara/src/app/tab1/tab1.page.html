@@ -1,0 +1,22 @@
+
+
+<ion-content class="ion-padding">
+  <div class="logo">
+    <img src="../../assets/téléchargement.jpg" alt="" width="250" height="250">
+  </div>
+  <div>
+    <ion-title><h2>Liste des Users</h2></ion-title>
+    
+  </div>
+  <table>
+    <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td>{{item.prenom}}</td>
+        <td>{{item.nom}}</td>
+    </tr>
+  </table>
+    
+</ion-content>

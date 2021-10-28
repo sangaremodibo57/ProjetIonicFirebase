@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title>
+      Registre
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form  #validation_form.value="ngForm" class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
+    <div class="logo">
+      <img src="../../assets/images.jpg" alt="" width="150" height="150">
+    </div>
+    <div>
+      <ion-item >
+        <ion-input  type="text" formControlName="prenom" name="nom"  placeholder="Prénom" required></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input  type="text" formControlName="nom" placeholder="Nom" required></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-input  type="email"formControlName="email"  placeholder="email:you@gmail.com" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input  type="password" formControlName="password" placeholder="Password" required></ion-input>
+      </ion-item>
+    </div>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message"
+          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <div class="btn">
+      <ion-button shape="round" type="submit"  expand="block" >
+        <ion-icon name="add-circle-outline"></ion-icon>
+          Ajouter
+        </ion-button>
+    </div>
+    <label class="error-message">{{errorMessage}}</label>
+    <label class="success-message">{{successMessage}}</label>
+  </form>
+  <p class="go-to-login">Vous avez déjà un compte? <a (click)="goLoginPage()">Essayez de vous connecter.</a></p>
+</ion-content>

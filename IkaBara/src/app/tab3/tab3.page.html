@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Rechercher
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="logo">
+    <img src="../../assets/istockphoto-1279128074-170667a.jpg" alt="" width="250" height="130">
+  </div>
+  <ion-searchbar [(ngModel)]="term" animated="true"></ion-searchbar>
+  <table>
+    
+    <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+    </tr>
+    <tr  *ngFor="let item of items | filter:term">
+        <td>{{item.prenom}}</td>
+        <td>{{item.nom}}</td>
+    </tr>
+  </table>
+  
+</ion-content>

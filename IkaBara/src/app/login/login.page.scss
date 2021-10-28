@@ -1,0 +1,34 @@
+ion-content{
+  --ion-background-color: linear-gradient(#f3f3f5,#fff,#fff,#2d1ad8);
+}
+ion-item{
+   --ion-background-color: transparent!important;
+}
+.flex{
+  display:flex;
+  justify-content:space-around;
+}
+
+
+
+.logo{
+  width: 90%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size:6em;
+
+}
+.validation-errors{
+  
+  padding: 10px;
+  text-align: center;
+  color: rgb(189, 66, 66);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+}
+.inscrit:hover{
+  color: blue;
+}
