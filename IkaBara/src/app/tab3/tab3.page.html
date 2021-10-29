@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" *ngIf="!deconnect">
   <ion-toolbar>
     <ion-title>
       Rechercher
@@ -6,21 +6,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="logo">
+<ion-content class="ion-padding" >
+  <div class="logo" *ngIf="!deconnect"> 
     <img src="../../assets/istockphoto-1279128074-170667a.jpg" alt="" width="250" height="130">
+    <ion-searchbar [(ngModel)]="term" animated="true"></ion-searchbar>
+    <table> 
+      <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+      </tr>
+      <tr  *ngFor="let item of items | filter:term">
+          <td>{{item.prenom}}</td>
+          <td>{{item.nom}}</td>
+      </tr>
+    </table>
   </div>
-  <ion-searchbar [(ngModel)]="term" animated="true"></ion-searchbar>
-  <table>
+  <div *ngIf="deconnect">
     
-    <tr>
-        <th scope="col">Nom</th>
-        <th scope="col">Prénom</th>
-    </tr>
-    <tr  *ngFor="let item of items | filter:term">
-        <td>{{item.prenom}}</td>
-        <td>{{item.nom}}</td>
-    </tr>
-  </table>
-  
+    <div class="logo">
+      <img src="../../assets/get-connected-201005.png" alt="" width="250" height="150">
+      <h4>Veuillez vous Connecter svp</h4>
+      <a href="">connectez vous ici</a>
+      <img src="../../assets/istockphoto-1207768103-612x612 (1).jpg" alt="" width="400" height="200">
+    </div>
+  </div>
 </ion-content>

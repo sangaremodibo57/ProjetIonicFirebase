@@ -1,7 +1,7 @@
 <ion-content class="ion-padding">
   <form  #form="ngForm" [formGroup]="validations_form" (ngSubmit)="loginUser(validations_form.value)" class="form">
     <div class="logo">
-      <img src="../../assets/Login-img.png" alt="" width="150" height="150">
+      <img src="../../assets/logo3.png" alt="" width="150" height="150">
     </div>
     <div>
       <ion-item >
@@ -38,19 +38,5 @@
       <br>
       <ion-button (click)="goToRegisterPage()" shape="round" expand="block" color="#388fff" class="inscrit">Inscription</ion-button>
     </div>
-    <!-- <div>
-      <ion-item  lines="none">
-        <ion-label color="light">Ou Connecter-vous avec</ion-label>
-      </ion-item>
-    </div> -->
-    <!-- <div class="flex">
-      <ion-button shape="round">
-        <ion-icon slot="start" name="logo-facebook"></ion-icon>
-      </ion-button>
-      <ion-button color="danger" shape="round">
-        <ion-icon slot="start" name="logo-google"></ion-icon>
-      </ion-button>
-    </div> -->
-
   </form>
 </ion-content>

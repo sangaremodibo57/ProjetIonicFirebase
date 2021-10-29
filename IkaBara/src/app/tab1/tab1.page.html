@@ -1,22 +1,30 @@
 
 
 <ion-content class="ion-padding">
-  <div class="logo">
-    <img src="../../assets/téléchargement.jpg" alt="" width="250" height="250">
+  <div class="logo" *ngIf="!deconnect">
+    <img src="../../assets/téléchargement.jpg" alt="" width="250" height="150">
   </div>
-  <div>
+  <div *ngIf="!deconnect">
     <ion-title><h2>Liste des Users</h2></ion-title>
-    
+    <table>
+      <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Prénom</th>
+      </tr>
+      <tr *ngFor="let item of items">
+          <td>{{item.prenom}}</td>
+          <td>{{item.nom}}</td>
+      </tr>
+    </table>
   </div>
-  <table>
-    <tr>
-        <th scope="col">Nom</th>
-        <th scope="col">Prénom</th>
-    </tr>
-    <tr *ngFor="let item of items">
-        <td>{{item.prenom}}</td>
-        <td>{{item.nom}}</td>
-    </tr>
-  </table>
+  <div *ngIf="deconnect">
+    
+    <div class="logo">
+      <img src="../../assets/get-connected-201005.png" alt="" width="250" height="150">
+      <h4>Veuillez vous Connecter svp</h4>
+      <a href="">connectez vous ici</a>
+      <img src="../../assets/istockphoto-1207768103-612x612 (1).jpg" alt="" width="400" height="200">
+    </div>
+  </div>
     
 </ion-content>

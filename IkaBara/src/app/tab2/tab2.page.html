@@ -1,23 +1,42 @@
-<ion-header>
+<ion-header *ngIf="!deconnect">
   <ion-toolbar>
-    <ion-title>Dashboard</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="logo">
-    <img src="../../assets/images.png" alt="" width="250" height="250">
-    <ion-text>
-      Welcome  
-    </ion-text>
-    <ion-text>
-      {{userEmail}}  
-    </ion-text>
+  <div class="logo" *ngIf="!deconnect">
+    <img src="../../assets/images.png" alt="" width="250" height="150">
+    
+    <table>
+      <tr>
+        <td>Prénom :</td>
+        <td>{{userPrenom}}</td>
+      </tr>
+      <tr>
+        <td>Nom :</td>
+        <td>{{userNom}}</td>
+      </tr>
+      <tr>
+        <td>Email :</td>
+        <td>{{userEmail}}</td>
+      </tr>
+    </table>
+      <a href="reinitialiser">Reinitialiser mot de passe</a>
     <ion-footer (click)="logout()">
       <ion-toolbar color="danger">
         <ion-title>Log out</ion-title>
       </ion-toolbar>
     </ion-footer>
+  </div>
+  <div *ngIf="deconnect">
+    
+    <div class="logo">
+      <img src="../../assets/get-connected-201005.png" alt="" width="250" height="150">
+      <h4>Veuillez vous Connecter svp</h4>
+      <a href="">connectez vous ici</a>
+      <img src="../../assets/istockphoto-1207768103-612x612 (1).jpg" alt="" width="400" height="200">
+    </div>
   </div>
   
 </ion-content>

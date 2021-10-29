@@ -13,7 +13,6 @@ export class LoginPage implements OnInit {
   validations_form: FormGroup;
   errorMessage: string = '';
 
-
   constructor(
 
     private navCtrl: NavController,
@@ -34,7 +33,7 @@ export class LoginPage implements OnInit {
         Validators.required
       ])),
     });
-
+    
   }
 
   validation_messages = {
@@ -52,7 +51,8 @@ export class LoginPage implements OnInit {
     this.authService.loginUser(value)
       .then(res => {
         console.log(res);
-        this.errorMessage = "";
+        this.errorMessage = "test";
+        this.validations_form.reset();
         this.navCtrl.navigateForward('tabs/tabs/tab1');
         
       }, err => {
